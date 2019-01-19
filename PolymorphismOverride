@@ -1,0 +1,41 @@
+//Concept of Polymorphism explained trough java
+//*********Static Polymorphism(Function Overridng)
+//In this class all the employee working in a company has certain procedure to
+//calculate bonus, based on no of years of experience 
+//But if empoyee is manager then there is different calculation procedure 
+// For Bonus calculation, 
+//Method caluclate bonus is defined in employee which gets overridden in
+//Manager 
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         Employee Emp1 = new Employee();
+        
+        System.out.println( "Bonus of Employee is: " + Emp1.calculateBonus(2));
+        Manager Manager1 = new Manager();
+        System.out.println( "Bonus of Manager is : " + Manager1.calculateBonus(5));
+     }
+}
+
+class Employee
+{
+  //calculates Bonus of any employee
+    public int calculateBonus( int no_of_years_of_experience)
+    {
+        return (no_of_years_of_experience*10000);
+    }
+    
+ 
+   
+}
+
+class Manager extends Employee
+{
+    //Calculates Bonus of manager
+    public int calculateBonus(int no_of_years_of_experience)
+    {
+         return (no_of_years_of_experience*15000);
+       
+    }
+}
