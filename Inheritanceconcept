@@ -1,0 +1,45 @@
+//Conecpt of inheritance
+//Subclass will Extend Behavior(Methods) and Attributes(Variables) from super class
+//In this case Contract employee is a subclass of employee
+//and it extends attribute experience and behavior from Employee
+//subclass can redefine methods 
+
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         Employee Emp1 = new Employee();
+        Emp1.experience = 4;
+        System.out.println( "Salry of Employee1 is: " + Emp1.calculateSalary());
+          System.out.println( "Allocated Shares of Employee1 is: " + Emp1.calculateAllocatedShares());
+        ContractEmployee Emp2 = new ContractEmployee();
+        Emp2.experience = 4;
+        System.out.println( "Salry of Employee2 is: " + Emp2.calculateSalary());
+          System.out.println( "Allocated Shares of Employee1 is: " + Emp2.calculateAllocatedShares());
+     }
+}
+ class Employee
+{
+    
+    int experience;
+    
+
+   public int  calculateSalary () 
+   {
+       return( experience*1000 ); 
+    
+   }
+    public int calculateAllocatedShares()
+    {
+        return( experience*4 );
+    }
+   
+}
+
+ class ContractEmployee extends Employee
+ {
+     public int calculateAllocatedShares()
+    {
+        return( experience*2 );
+    }
+ }
