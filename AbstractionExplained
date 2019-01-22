@@ -1,0 +1,77 @@
+//Example of abstraction principe in java
+//In this case service center is a class which can repair Car or Vehicle
+//Reparing Proccess of Vehicle need not be known to service center object
+//In other terms Logic of repair of car or bike is abstracted from Service Center
+//Based on the Scenario Repair method of specfic Vehicle car or bike would be called would be called
+import java.util.*;
+
+public class HelloWorld{
+
+public static void main(String []args){
+ Scanner reader = new Scanner(System.in); 
+  
+ System.out.println("Enter 1 for Car repair");
+ System.out.print("Enter 2 for Bike repair");
+//Read type of object for servicing
+int number = reader.nextInt();
+Vehicle vh ;
+//Create Object of Specific Type of Vehicle
+if (number == 1)
+{
+//Create object of car
+ vh  = new Car();   
+}
+else
+{
+//Create oobject of bike
+  vh = new Bike();  
+}
+
+ServiceCenter sc = new ServiceCenter();
+//Call repair
+sc.repair(vh);
+
+}
+}
+
+class ServiceCenter
+
+{
+//Service center is not bothered to call specific method of repair of vehicle based on vehicle type
+//It called generic method
+public void repair( Vehicle Vh)
+{
+    Vh.repair();
+}
+    
+}
+
+abstract class Vehicle 
+{
+    //Painting process would be same for each type of vehicle
+    public void paint()
+    {
+        System.out.println("Vehicle is getting Painted");
+    }
+    
+    public abstract void repair();
+}
+
+class Car extends Vehicle
+{
+    //Car has its own way of repair
+    public void repair()
+    {
+          System.out.println("Car is getting repaired");  
+    }
+}
+
+
+class Bike extends Vehicle
+{
+    //Bike has its own way of repair
+    public void repair()
+    {
+          System.out.println("Bike is getting repaired");  
+    }
+}
