@@ -1,0 +1,30 @@
+//Concept of Encapsulation
+//In this example Student is a class which has encapsulated memeber variables Age inside it and provides setters and getters to change it
+
+public class Example
+{
+    public static void main(String agrs[])
+    {
+        Student st = new Student();
+        st.setAge(10);
+        System.out.println(st.getAge());
+    }
+}
+
+class Student
+{
+    private int age;
+    
+    public int getAge()
+    {
+        return this.age ;
+    }
+    
+    public void setAge(int age)
+    {
+        if (age>0)
+        {
+            this.age = age;
+        }
+    }
+}
